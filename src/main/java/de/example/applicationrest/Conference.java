@@ -8,7 +8,6 @@ import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Data
 public class Conference {
 
     @Id
@@ -16,15 +15,13 @@ public class Conference {
     private long id;
     private String conferenceName;
     private String conferenceDescription;
-    private Date conferenceDate;
-    private String location;
+    private String conferenceLocation;
 
-    public Conference(long id, String conferenceName, String conferenceDescription, Date conferenceDate, String location) {
+    public Conference(long id, String conferenceName, String conferenceDescription, String conferenceLocation) {
         this.id = id;
         this.conferenceName = conferenceName;
         this.conferenceDescription = conferenceDescription;
-        this.conferenceDate = conferenceDate;
-        this.location = location;
+        this.conferenceLocation = conferenceLocation;
     }
 
     public Conference() {
@@ -55,20 +52,12 @@ public class Conference {
         this.conferenceDescription = conferenceDescription;
     }
 
-    public Date getConferenceDate() {
-        return conferenceDate;
+    public String getConferenceLocation() {
+        return conferenceLocation;
     }
 
-    public void setConferenceDate(Date conferenceDate) {
-        this.conferenceDate = conferenceDate;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setConferenceLocation(String conferenceLocation) {
+        this.conferenceLocation = conferenceLocation;
     }
 
     @Override
@@ -77,8 +66,7 @@ public class Conference {
                 "id=" + id +
                 ", conferenceName='" + conferenceName + '\'' +
                 ", conferenceDescription='" + conferenceDescription + '\'' +
-                ", conferenceDate=" + conferenceDate +
-                ", location='" + location + '\'' +
+                ", location='" + conferenceLocation + '\'' +
                 '}';
     }
 }
