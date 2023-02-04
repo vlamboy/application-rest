@@ -48,7 +48,7 @@ public class ConferenceRestController {
     public ResponseEntity<Conference> patchConference(@PathVariable Long id,
                                                       @RequestBody Map<String, Object> updatesOnConference) {
         Conference conferenceById = conferenceRepository.findById(id).get();
-        Conference updatedConference = conferenceService.patchConference(conferenceById, updatesOnConference);
+        Conference updatedConference = conferenceService.partialUpdateConference(conferenceById, updatesOnConference);
         conferenceRepository.save(updatedConference);
         return ResponseEntity.ok(updatedConference);
     }
